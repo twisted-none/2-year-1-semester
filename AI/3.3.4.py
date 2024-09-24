@@ -1,0 +1,1 @@
+print(*[i for i in range(105, 4, -25)], sep='\n')
