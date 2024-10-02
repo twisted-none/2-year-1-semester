@@ -10,6 +10,7 @@
         "projectUniqueName": "D:\\2-year-1-semester\\пкс\\2.2\\2.2\\2.2.csproj",
         "projectName": "2.2",
         "projectPath": "D:\\2-year-1-semester\\пкс\\2.2\\2.2\\2.2.csproj",
+<<<<<<< Updated upstream
         "packagesPath": "C:\\Users\\demas\\.nuget\\packages\\",
         "outputPath": "D:\\2-year-1-semester\\пкс\\2.2\\2.2\\obj\\",
         "projectStyle": "PackageReference",
@@ -19,6 +20,13 @@
         "configFilePaths": [
           "C:\\Users\\demas\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+=======
+        "packagesPath": "C:\\Users\\twisted_none\\.nuget\\packages\\",
+        "outputPath": "D:\\2-year-1-semester\\пкс\\2.2\\2.2\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\twisted_none\\AppData\\Roaming\\NuGet\\NuGet.Config",
+>>>>>>> Stashed changes
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -26,6 +34,10 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+<<<<<<< Updated upstream
+=======
+          "C:\\Program Files\\dotnet\\library-packs": {},
+>>>>>>> Stashed changes
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {

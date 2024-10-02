@@ -100,7 +100,13 @@ while (true)
 
         case 3:
 
+<<<<<<< Updated upstream
             if (first_matrix.GetLength(0) != first_matrix.GetLength(1))
+=======
+            int n = first_matrix.GetLength(0);
+
+            if (n == 0)
+>>>>>>> Stashed changes
             {
                 Console.WriteLine("Ошибка: матрица должна быть квадратной для вычисления определителя.");
                 break;
@@ -117,7 +123,13 @@ while (true)
         
         case 4:
 
+<<<<<<< Updated upstream
             if (second_matrix.GetLength(0) != second_matrix.GetLength(1))
+=======
+            int n1 = first_matrix.GetLength(0);
+
+            if (n1 == 0)
+>>>>>>> Stashed changes
             {
                 Console.WriteLine("Ошибка: матрица должна быть квадратной для вычисления определителя.");
                 break;
@@ -134,7 +146,13 @@ while (true)
 
         case 5:
 
+<<<<<<< Updated upstream
             if ((first_matrix.GetLength(0) != first_matrix.GetLength(1)))
+=======
+            int n2 = first_matrix.GetLength(0);
+
+            if (n2 == 0)
+>>>>>>> Stashed changes
             {
                 Console.WriteLine("Ошибка: чтобы найти обратную матрицу, она должна быть квадратной.");
                 break;
@@ -164,6 +182,7 @@ while (true)
 
             break;
         case 6:
+<<<<<<< Updated upstream
 
             if ((second_matrix.GetLength(0) != second_matrix.GetLength(1)))
             {
@@ -190,6 +209,8 @@ while (true)
 
             }
 
+=======
+>>>>>>> Stashed changes
             break;
         case 7:
 
@@ -204,6 +225,7 @@ while (true)
             break;
 
         case 9:
+<<<<<<< Updated upstream
         case 10:
             int[,] matrixToSolve = (user_choice_matrix == 9) ? first_matrix : second_matrix;
             try
@@ -219,6 +241,10 @@ while (true)
             {
                 Console.WriteLine($"Ошибка: {e.Message}");
             }
+=======
+            break;
+        case 10:
+>>>>>>> Stashed changes
             break;
     }
 
@@ -459,6 +485,7 @@ void ShowReverseMatrix(int[,] matrix, int stroka, int stolbec, int determinate)
         Console.WriteLine();
     }
 
+<<<<<<< Updated upstream
 }
 
 
@@ -576,4 +603,6 @@ double[] SolveOverdeterminedSystem(double[,] A, double[] b)
     }
 
     return SolveSquareSystem(ATA, ATb);
+=======
+>>>>>>> Stashed changes
 }
