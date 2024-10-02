@@ -24,7 +24,7 @@ private:
     Ui::MainWindow *ui;
     bool validateInput(const QString &number);
     double convertToDouble(const QString &number);
-    QString convertFromDouble(double number, int precision = 10);
+    void displayResult(double result);
     double calculateTrigFunction(double value, const QString &function);
 };
 #endif // MAINWINDOW_H

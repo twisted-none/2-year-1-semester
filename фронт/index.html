@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Сайт Швецова Демьяна Андреевича</title>
+    <title>Персональный сайт - Швецов Демьян Андреевич</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
 </head>
 <body>
     <header>
@@ -21,14 +20,14 @@
     <nav>
         <ul>
             <li><a href="#home">Главная</a></li>
-            <li><a href="#semester1">Первый семестр</a></li>
+            <li><a href="semester1.html">Первый семестр</a></li>
             <li><a href="#semester2">Второй семестр</a></li>
             <li><a href="services.html">Услуги</a></li>
             <li><a href="#auth">Авторизация</a></li>
         </ul>
     </nav>
 
-    <main>
+    <main role="main">
         <aside>
             <h3>Навигация по странице</h3>
             <ul>
@@ -45,8 +44,8 @@
                 </div>
                 <img src="avatar.png" alt="Аватар" class="avatar">
             </div>
-            
-            <section id="frontend">
+
+        <section id="frontend">
             <h2>Фронтенд</h2>
             <p>Фронтенд - это та часть веб-разработки, которая отвечает за визуальное восприятие и интерактивность сайта или веб-приложения. Он включает в себя все элементы, с которыми пользователи взаимодействуют напрямую: от кнопок и форм до анимаций и графики.</p>
             <p>Основная цель фронтенда - обеспечить удобный и интуитивно понятный интерфейс, который делает взаимодействие с контентом как можно более комфортным и эффективным. Для реализации фронтенда используются различные технологии и инструменты.</p>
@@ -69,7 +68,17 @@
             <p>В современном мире фронтенд играет ключевую роль в успехе веб-проектов. Хорошо спроектированный и реализованный фронтенд может значительно повысить удовлетворенность пользователей, увеличить конверсию и, в конечном итоге, способствовать достижению бизнес-целей проекта.</p>
         </section>
 
-            <section id="backend">
+		<section id="videos_frontend">
+            <h2>Видеоматериалы</h2>
+            <div class="video-container">
+                <video width="400" height="300" controls>
+					<source src="video1.webm" type="video/webm">
+                    Ваш браузер не поддерживает видео тег.
+                </video>
+			</div>
+        </section>
+
+        <section id="backend">
             <h2>Бэкенд</h2>
             <p>Бэкенд - это основа любого веб-приложения, скрытая от глаз пользователей, но играющая критически важную роль в функционировании всего проекта. Здесь происходят операции обработки данных, реализуется бизнес-логика и осуществляется взаимодействие с базами данных.</p>
             <h3>Ключевые аспекты бэкенд-разработки:</h3>
@@ -100,14 +109,25 @@
             </ol>
             <p>Бэкенд-разработка требует постоянного обучения и адаптации к новым технологиям и методологиям. С ростом сложности веб-приложений и увеличением объемов данных, роль бэкенд-разработчиков становится все более важной для создания надежных, эффективных и масштабируемых решений.</p>
         </section>
+
+		<section id="videos_backend">
+            <h3>Видеоматериалы</h3>
+		<div class="video-container">
+		<video controls preload="metadata" poster="placeholder.jpg">
+			<source src="video2.webm" type="video/webm">
+			Ваш браузер не поддерживает видео тег.
+		</video>
+</div>
         </section>
+		
+	</section>
     </main>
 
     <footer>
-        <p>&copy; Швецов Демьян Андреевич, 2024</p>
+        <p>© Швецов Демьян Андреевич, 2024</p>
         <div class="social-icons">
-            <a href="https://vk.com/twistednone" target="_blank" class="whatsapp-icon">VK</a>
-            <a href="https://t.me/twistednone" target="_blank" class="vk-icon">Telegram</a>
+            <a href="https://vk.com/twistednone" class="vk-icon" target="_blank">VK</a>
+            <a href="https://t.me/twistednone" class="telegram-icon" target="_blank">Telegram</a>
         </div>
     </footer>
 </body>

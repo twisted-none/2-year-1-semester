@@ -2,6 +2,8 @@
 #include "ui_mainwindow.h"
 #include <QtMath>
 #include <QRegularExpression>
+#include <limits>
+#include <cmath>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -20,6 +22,8 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->acosButton, &QPushButton::clicked, this, &MainWindow::onTrigFunctionButtonClicked);
     connect(ui->atanButton, &QPushButton::clicked, this, &MainWindow::onTrigFunctionButtonClicked);
     connect(ui->acotButton, &QPushButton::clicked, this, &MainWindow::onTrigFunctionButtonClicked);
+
+    // Удалили установку валидатора
 }
 
 MainWindow::~MainWindow()
@@ -29,8 +33,8 @@ MainWindow::~MainWindow()
 
 void MainWindow::onOperationButtonClicked()
 {
-    QString num1 = ui->number1LineEdit->text();
-    QString num2 = ui->number2LineEdit->text();
+    QString num1 = ui->number1LineEdit->text().toLower();
+    QString num2 = ui->number2LineEdit->text().toLower();
 
     if (!validateInput(num1) || !validateInput(num2)) {
         ui->resultLabel->setText("Ошибка: некорректный ввод");
@@ -60,19 +64,13 @@ void MainWindow::onOperationButtonClicked()
         return;
     }
 
-    if (qIsInf(result)) {
-        ui->resultLabel->setText("Ошибка: результат - бесконечность");
-    } else if (qIsNaN(result)) {
-        ui->resultLabel->setText("Ошибка: результат - не число");
-    } else {
-        ui->resultLabel->setText(convertFromDouble(result));
-    }
+    displayResult(result);
 }
 
 void MainWindow::onTrigFunctionButtonClicked()
 {
-    QString input1 = ui->number1LineEdit->text();
-    QString input2 = ui->number2LineEdit->text();
+    QString input1 = ui->number1LineEdit->text().toLower();
+    QString input2 = ui->number2LineEdit->text().toLower();
 
     if (!validateInput(input1)) {
         ui->resultLabel->setText("Ошибка: некорректный ввод в поле Число 1");
@@ -113,40 +111,78 @@ void MainWindow::onTrigFunctionButtonClicked()
         }
     }
 
-    if (qIsInf(value)) {
-        ui->resultLabel->setText("Ошибка: результат - бесконечность");
-    } else if (qIsNaN(value)) {
-        ui->resultLabel->setText("Ошибка: результат - не число");
-    } else {
-        ui->resultLabel->setText(convertFromDouble(value));
-    }
+    displayResult(value);
 }
 
 bool MainWindow::validateInput(const QString &number)
 {
-    QRegularExpression re("^-?\\d*\\.?\\d+$");
+    if (number.toLower() == "inf") {
+        return true;
+    }
+    QRegularExpression re("^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?$");
     return re.match(number).hasMatch();
 }
 
 double MainWindow::convertToDouble(const QString &number)
 {
+    if (number.toLower() == "inf") {
+        return std::numeric_limits<double>::infinity();
+    }
     return number.toDouble();
 }
 
-QString MainWindow::convertFromDouble(double number, int precision)
+void MainWindow::displayResult(double result)
 {
-    return QString::number(number, 'f', precision);
+    const double epsilon = 1e-12;  // Погрешность для сравнения с нулем
+
+    if (qIsInf(result)) {
+        ui->resultLabel->setText("Результат: бесконечность");
+    } else if (qIsNaN(result)) {
+        ui->resultLabel->setText("Ошибка: результат - не число");
+    } else if (qAbs(result) > std::numeric_limits<double>::max()) {
+        ui->resultLabel->setText("Результат: слишком большое число");
+    } else if (qAbs(result) < std::numeric_limits<double>::min() && result != 0) {
+        ui->resultLabel->setText("Результат: слишком маленькое число");
+    } else if (qAbs(result) < epsilon) {
+        ui->resultLabel->setText("Результат: 0");
+    } else {
+        ui->resultLabel->setText(QString("Результат: %1").arg(result, 0, 'g', 15));
+    }
 }
 
 double MainWindow::calculateTrigFunction(double value, const QString &function)
 {
-    if (function == "sin") return qSin(value);
-    if (function == "cos") return qCos(value);
-    if (function == "tan") return qTan(value);
-    if (function == "cot") return 1.0 / qTan(value);
-    if (function == "asin") return qAsin(value);
-    if (function == "acos") return qAcos(value);
+    const double pi = M_PI;
+    const double epsilon = 1e-12;  // Погрешность для сравнения с нулем
+
+    if (function == "sin") {
+        if (std::fmod(value, pi) < epsilon) return 0.0;
+        return qSin(value);
+    }
+    if (function == "cos") {
+        if (std::fmod(value + pi/2, pi) < epsilon) return 0.0;
+        return qCos(value);
+    }
+    if (function == "tan") {
+        if (std::fmod(value, pi) < epsilon) return 0.0;
+        if (std::fmod(value + pi/2, pi) < epsilon) return std::numeric_limits<double>::infinity();
+        return qTan(value);
+    }
+    if (function == "cot") {
+        if (std::fmod(value, pi) < epsilon) return std::numeric_limits<double>::infinity();
+        if (std::fmod(value + pi/2, pi) < epsilon) return 0.0;
+        return 1.0 / qTan(value);
+    }
+    if (function == "asin") {
+        if (qAbs(value) > 1) return std::numeric_limits<double>::quiet_NaN();
+        return qAsin(value);
+    }
+    if (function == "acos") {
+        if (qAbs(value) > 1) return std::numeric_limits<double>::quiet_NaN();
+        return qAcos(value);
+    }
     if (function == "atan") return qAtan(value);
-    if (function == "acot") return M_PI_2 - qAtan(value);
+    if (function == "acot") return pi/2 - qAtan(value);
+
     return 0.0;
 }
