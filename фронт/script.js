@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const modal = document.getElementById("modal");
         const modalTitle = modal.querySelector("h2");
         const serviceInput = document.getElementById("serviceType");
-
+    
         let serviceName;
         switch (serviceType) {
             case 'site-card':
@@ -48,21 +48,24 @@ document.addEventListener('DOMContentLoaded', function() {
             default:
                 serviceName = '';
         }
-
+    
         modalTitle.textContent = `Заказать разработку ${serviceName}`;
         serviceInput.value = serviceName;
-        modal.style.display = "block";
+        modal.style.display = "flex";
+        document.body.style.overflow = "hidden";  // Предотвращаем прокрутку страницы
     }
 
     // Функция закрытия модального окна
     window.closeModal = function() {
         const modal = document.getElementById("modal");
         modal.style.display = "none";
+        document.body.style.overflow = "";  // Возвращаем прокрутку страницы
     }
 
     // Закрытие модального окна при клике вне его
     window.onclick = function(event) {
-        if (event.target == document.getElementById('modal')) {
+        const modal = document.getElementById('modal');
+        if (event.target == modal) {
             closeModal();
         }
     }
