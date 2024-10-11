@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Numerics;
 
 Console.Write("Введите количество строк в первой матрице: ");
 int stroka_first = int.Parse(Console.ReadLine());
@@ -12,7 +11,7 @@ Console.WriteLine();
 Console.Write("Как вы хотите заполнить матрицу? (1 - в ручную, 2 - случайными числами в диапазоне [a, b]): ");
 int first_user_choice = int.Parse(Console.ReadLine());
 
-int[,] first_matrix = new int [stroka_first, stolbec_first];
+int[,] first_matrix = new int[stroka_first, stolbec_first];
 
 if (first_user_choice == 1)
 {
@@ -100,17 +99,11 @@ while (true)
 
         case 3:
 
-<<<<<<< Updated upstream
             if (first_matrix.GetLength(0) != first_matrix.GetLength(1))
-=======
-            int n = first_matrix.GetLength(0);
-
-            if (n == 0)
->>>>>>> Stashed changes
             {
                 Console.WriteLine("Ошибка: матрица должна быть квадратной для вычисления определителя.");
                 break;
-            } 
+            }
             else
             {
 
@@ -120,16 +113,10 @@ while (true)
             }
 
             break;
-        
+
         case 4:
 
-<<<<<<< Updated upstream
             if (second_matrix.GetLength(0) != second_matrix.GetLength(1))
-=======
-            int n1 = first_matrix.GetLength(0);
-
-            if (n1 == 0)
->>>>>>> Stashed changes
             {
                 Console.WriteLine("Ошибка: матрица должна быть квадратной для вычисления определителя.");
                 break;
@@ -146,13 +133,7 @@ while (true)
 
         case 5:
 
-<<<<<<< Updated upstream
             if ((first_matrix.GetLength(0) != first_matrix.GetLength(1)))
-=======
-            int n2 = first_matrix.GetLength(0);
-
-            if (n2 == 0)
->>>>>>> Stashed changes
             {
                 Console.WriteLine("Ошибка: чтобы найти обратную матрицу, она должна быть квадратной.");
                 break;
@@ -177,12 +158,11 @@ while (true)
 
             }
 
-            
-            
+
+
 
             break;
         case 6:
-<<<<<<< Updated upstream
 
             if ((second_matrix.GetLength(0) != second_matrix.GetLength(1)))
             {
@@ -209,8 +189,6 @@ while (true)
 
             }
 
-=======
->>>>>>> Stashed changes
             break;
         case 7:
 
@@ -225,26 +203,9 @@ while (true)
             break;
 
         case 9:
-<<<<<<< Updated upstream
         case 10:
             int[,] matrixToSolve = (user_choice_matrix == 9) ? first_matrix : second_matrix;
-            try
-            {
-                double[] solution = SolveEquationSystem(matrixToSolve);
-                Console.WriteLine($"Решение системы уравнений для {(user_choice_matrix == 9 ? "первой" : "второй")} матрицы:");
-                for (int i = 0; i < solution.Length; i++)
-                {
-                    Console.WriteLine($"x{i + 1} = {solution[i]:F4}");
-                }
-            }
-            catch (ArgumentException e)
-            {
-                Console.WriteLine($"Ошибка: {e.Message}");
-            }
-=======
-            break;
-        case 10:
->>>>>>> Stashed changes
+            SolveAndPrintResult(matrixToSolve);
             break;
     }
 
@@ -326,7 +287,7 @@ void AddictionMatrix(int[,] matrix1, int[,] matrix2, int stroka1, int stolbec1, 
         }
         Console.WriteLine("В ходе сложения получилась следующая матрица: ");
         Console.WriteLine();
-        
+
         ShowMatrix(new_matrix, stroka1, stolbec1);
 
     }
@@ -372,7 +333,7 @@ int FindDeterminateMatrix(int[,] matrix)
         return matrix[0, 0];
 
     if (n == 2)
-         return matrix[0, 0] * matrix[1, 1] - matrix[0, 1] * matrix[1, 0];
+        return matrix[0, 0] * matrix[1, 1] - matrix[0, 1] * matrix[1, 0];
 
     int det = 0;
     for (int j = 0; j < n; j++)
@@ -407,7 +368,7 @@ int[,] GetMinor(int[,] matrix, int row, int col)
 
 int[,] TransponirovanieMatrix(int[,] matrix, int stroka, int stolbec)
 {
-    
+
     int[,] new_matrix = new int[stolbec, stroka];
     for (int i = 0; i < stolbec; i++)
     {
@@ -470,67 +431,86 @@ void ShowReverseMatrix(int[,] matrix, int stroka, int stolbec, int determinate)
                 {
                     Console.Write($"{matrix[i, j]} * 1/{determinate}");
                 }
-                
+
 
             }
             else
             {
-                
+
                 Console.Write($"{matrix[i, j]}  ");
-                
+
             }
-                
+
         }
 
         Console.WriteLine();
     }
 
-<<<<<<< Updated upstream
 }
 
 
 double[] SolveEquationSystem(int[,] matrix)
 {
     int rows = matrix.GetLength(0);
-    int cols = matrix.GetLength(1) - 1;
+    int cols = matrix.GetLength(1);
 
-    double[,] A = new double[rows, cols];
+    if (cols != rows + 1)
+    {
+        Console.WriteLine("Ошибка: матрица должна иметь размер n x (n+1), где n - количество неизвестных.");
+        return null;
+    }
+
+    int[,] A = new int[rows, rows];
     double[] b = new double[rows];
 
     for (int i = 0; i < rows; i++)
     {
-        for (int j = 0; j < cols; j++)
+        for (int j = 0; j < rows; j++)
         {
             A[i, j] = matrix[i, j];
         }
-        b[i] = matrix[i, cols];
+        b[i] = matrix[i, rows];
     }
 
-    if (rows == cols)
+    int det = FindDeterminateMatrix(A);
+    if (Math.Abs(det) < 1e-10)
     {
-        return SolveSquareSystem(A, b);
+        Console.WriteLine("Определитель матрицы A равен нулю.");
+        if (IsConsistent(A, b))
+        {
+            Console.WriteLine("Система имеет бесконечно много решений.");
+        }
+        else
+        {
+            Console.WriteLine("Система не имеет решений.");
+        }
+        return null;
     }
-    else if (rows > cols)
-    {
-        return SolveOverdeterminedSystem(A, b);
-    }
-    else
-    {
-        throw new ArgumentException("Система имеет бесконечное количество решений");
-    }
+
+    return GaussMethod(A, b);
 }
 
-double[] SolveSquareSystem(double[,] A, double[] b)
+double[] GaussMethod(int[,] A, double[] b)
 {
     int n = b.Length;
     double[] x = new double[n];
+    double[,] augmentedMatrix = new double[n, n + 1];
+
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = 0; j < n; j++)
+        {
+            augmentedMatrix[i, j] = A[i, j];
+        }
+        augmentedMatrix[i, n] = b[i];
+    }
 
     for (int k = 0; k < n; k++)
     {
         int maxRow = k;
         for (int i = k + 1; i < n; i++)
         {
-            if (Math.Abs(A[i, k]) > Math.Abs(A[maxRow, k]))
+            if (Math.Abs(augmentedMatrix[i, k]) > Math.Abs(augmentedMatrix[maxRow, k]))
             {
                 maxRow = i;
             }
@@ -538,71 +518,74 @@ double[] SolveSquareSystem(double[,] A, double[] b)
 
         if (maxRow != k)
         {
-            for (int j = k; j < n; j++)
+            for (int j = k; j <= n; j++)
             {
-                double temp = A[k, j];
-                A[k, j] = A[maxRow, j];
-                A[maxRow, j] = temp;
+                double temp = augmentedMatrix[k, j];
+                augmentedMatrix[k, j] = augmentedMatrix[maxRow, j];
+                augmentedMatrix[maxRow, j] = temp;
             }
-            double tempb = b[k];
-            b[k] = b[maxRow];
-            b[maxRow] = tempb;
         }
 
-        if (Math.Abs(A[k, k]) < 1e-10)
+        if (Math.Abs(augmentedMatrix[k, k]) < 1e-10)
         {
-            throw new ArgumentException("Система не имеет единственного решения");
+            Console.WriteLine("Матрица вырождена, точное решение невозможно.");
+            return null;
         }
 
         for (int i = k + 1; i < n; i++)
         {
-            double factor = A[i, k] / A[k, k];
-            for (int j = k + 1; j < n; j++)
+            double factor = augmentedMatrix[i, k] / augmentedMatrix[k, k];
+            for (int j = k; j <= n; j++)
             {
-                A[i, j] -= factor * A[k, j];
+                augmentedMatrix[i, j] -= factor * augmentedMatrix[k, j];
             }
-            b[i] -= factor * b[k];
         }
     }
 
     for (int i = n - 1; i >= 0; i--)
     {
-        double sum = 0;
+        x[i] = augmentedMatrix[i, n];
         for (int j = i + 1; j < n; j++)
         {
-            sum += A[i, j] * x[j];
+            x[i] -= augmentedMatrix[i, j] * x[j];
         }
-        x[i] = (b[i] - sum) / A[i, i];
+        x[i] /= augmentedMatrix[i, i];
     }
 
     return x;
 }
 
-double[] SolveOverdeterminedSystem(double[,] A, double[] b)
+bool IsConsistent(int[,] A, double[] b)
 {
-    int m = A.GetLength(0);
-    int n = A.GetLength(1);
-
-    double[,] ATA = new double[n, n];
-    double[] ATb = new double[n];
-
+    int n = A.GetLength(0);
     for (int i = 0; i < n; i++)
     {
+        bool allZero = true;
         for (int j = 0; j < n; j++)
         {
-            for (int k = 0; k < m; k++)
+            if (Math.Abs(A[i, j]) > 1e-10)
             {
-                ATA[i, j] += A[k, i] * A[k, j];
+                allZero = false;
+                break;
             }
         }
-
-        for (int k = 0; k < m; k++)
+        if (allZero && Math.Abs(b[i]) > 1e-10)
         {
-            ATb[i] += A[k, i] * b[k];
+            return false;
         }
     }
+    return true;
+}
 
-    return SolveSquareSystem(ATA, ATb);
-=======
->>>>>>> Stashed changes
+void SolveAndPrintResult(int[,] matrix)
+{
+    double[] solution = SolveEquationSystem(matrix);
+    if (solution != null)
+    {
+        Console.WriteLine("Решение системы уравнений:");
+        for (int i = 0; i < solution.Length; i++)
+        {
+            Console.WriteLine($"x{i + 1} = {solution[i]:F4}");
+        }
+    }
 }

@@ -22,13 +22,15 @@ double CalculateSin(double x, double e)
 {
     double term = x;
     double sum = term;
-    int n = 0;
+    int n = 1;
+
+    term = Math.Pow(-1, n) * (Math.Pow(x, 2 * n + 1) / Factorial(2 * n + 1));
 
     while (Math.Abs(term) > e)
     {
         n++;
-        term = Math.Pow(-1, n) * (Math.Pow(x, 2 * n + 1) / Factorial(2 * n + 1));
         sum += term;
+        term = Math.Pow(-1, n) * (Math.Pow(x, 2 * n + 1) / Factorial(2 * n + 1));
     }
 
     return sum;
