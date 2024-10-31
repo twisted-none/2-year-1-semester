@@ -3,8 +3,8 @@
   "WorkspaceRootPath": "D:\\2-year-1-semester\\\u043F\u043A\u0441\\3.1.1\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{BA818161-1879-4997-8872-380B0D061734}|3.1.1.csproj|d:\\2-year-1-semester\\\u043F\u043A\u0441\\3.1.1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BA818161-1879-4997-8872-380B0D061734}|3.1.1.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A1DFA209-6D4C-49ED-B2A6-7C96B16CA74C}|3.1.1\\3.1.1.csproj|d:\\2-year-1-semester\\\u043F\u043A\u0441\\3.1.1\\3.1.1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A1DFA209-6D4C-49ED-B2A6-7C96B16CA74C}|3.1.1\\3.1.1.csproj|solutionrelative:3.1.1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -20,13 +20,13 @@
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "Program.cs",
-              "DocumentMoniker": "D:\\2-year-1-semester\\\u043F\u043A\u0441\\3.1.1\\Program.cs",
-              "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "D:\\2-year-1-semester\\\u043F\u043A\u0441\\3.1.1\\Program.cs",
-              "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA==",
+              "DocumentMoniker": "D:\\2-year-1-semester\\\u043F\u043A\u0441\\3.1.1\\3.1.1\\Program.cs",
+              "RelativeDocumentMoniker": "3.1.1\\Program.cs",
+              "ToolTip": "D:\\2-year-1-semester\\\u043F\u043A\u0441\\3.1.1\\3.1.1\\Program.cs",
+              "RelativeToolTip": "3.1.1\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-10T06:05:22.931Z",
+              "WhenOpened": "2024-10-23T20:29:39.186Z",
               "EditorCaption": ""
             }
           ]
