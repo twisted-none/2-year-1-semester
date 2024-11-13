@@ -3,8 +3,16 @@
   "WorkspaceRootPath": "D:\\2-year-1-semester\\\u043F\u043A\u0441\\2.1.1\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{4D3E5E8A-7285-47D4-9BEE-312B4ACBD77B}|2.1.1\\2.1.1.csproj|d:\\2-year-1-semester\\\u043F\u043A\u0441\\2.1.1\\2.1.1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4D3E5E8A-7285-47D4-9BEE-312B4ACBD77B}|2.1.1\\2.1.1.csproj|solutionrelative:2.1.1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\2-year-1-semester\\\u043F\u043A\u0441\\3.2\\3.2\\Program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\2-year-1-semester\\\u043F\u043A\u0441\\3.2\\3.2\\Table.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\2-year-1-semester\\\u043F\u043A\u0441\\3.2\\3.2\\ReservationSystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\2-year-1-semester\\\u043F\u043A\u0441\\3.2\\3.2\\Booking.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,19 +22,58 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 2,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Table.cs",
+              "DocumentMoniker": "D:\\2-year-1-semester\\\u043F\u043A\u0441\\3.2\\3.2\\Table.cs",
+              "RelativeDocumentMoniker": "..\\3.2\\3.2\\Table.cs",
+              "ToolTip": "D:\\2-year-1-semester\\\u043F\u043A\u0441\\3.2\\3.2\\Table.cs",
+              "RelativeToolTip": "..\\3.2\\3.2\\Table.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-07T06:09:49.552Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ReservationSystem.cs",
+              "DocumentMoniker": "D:\\2-year-1-semester\\\u043F\u043A\u0441\\3.2\\3.2\\ReservationSystem.cs",
+              "RelativeDocumentMoniker": "..\\3.2\\3.2\\ReservationSystem.cs",
+              "ToolTip": "D:\\2-year-1-semester\\\u043F\u043A\u0441\\3.2\\3.2\\ReservationSystem.cs",
+              "RelativeToolTip": "..\\3.2\\3.2\\ReservationSystem.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-07T06:09:49.332Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "Program.cs",
-              "DocumentMoniker": "D:\\2-year-1-semester\\\u043F\u043A\u0441\\2.1.1\\2.1.1\\Program.cs",
-              "RelativeDocumentMoniker": "2.1.1\\Program.cs",
-              "ToolTip": "D:\\2-year-1-semester\\\u043F\u043A\u0441\\2.1.1\\2.1.1\\Program.cs",
-              "RelativeToolTip": "2.1.1\\Program.cs",
-              "ViewState": "AgIAABcAAAAAAAAAAAAuwDEAAAAAAAAAAAAAAA==",
+              "DocumentMoniker": "D:\\2-year-1-semester\\\u043F\u043A\u0441\\3.2\\3.2\\Program.cs",
+              "RelativeDocumentMoniker": "..\\3.2\\3.2\\Program.cs",
+              "ToolTip": "D:\\2-year-1-semester\\\u043F\u043A\u0441\\3.2\\3.2\\Program.cs",
+              "RelativeToolTip": "..\\3.2\\3.2\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-24T23:29:57.715Z",
+              "WhenOpened": "2024-11-07T06:09:49.078Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Booking.cs",
+              "DocumentMoniker": "D:\\2-year-1-semester\\\u043F\u043A\u0441\\3.2\\3.2\\Booking.cs",
+              "RelativeDocumentMoniker": "..\\3.2\\3.2\\Booking.cs",
+              "ToolTip": "D:\\2-year-1-semester\\\u043F\u043A\u0441\\3.2\\3.2\\Booking.cs",
+              "RelativeToolTip": "..\\3.2\\3.2\\Booking.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-07T06:09:48.817Z",
               "EditorCaption": ""
             }
           ]

@@ -3,8 +3,10 @@
 Console.Write("Введите x для вычисления sin(x) рядом Маклорена: ");
 double x1 = double.Parse(Console.ReadLine());
 
-Console.Write("Введите точность e (e < 0.01): ");
+Console.Write("Введите точность e (e < 0,01, иначе значение по умолчанию 0,01): ");
 double e = double.Parse(Console.ReadLine());
+
+if (e > 0.01) e = 0.01;
 
 double result = CalculateSin(x1, e);
 Console.WriteLine($"sin({x1}) ≈ {result}");
