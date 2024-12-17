@@ -1,3 +1,4 @@
+
 import random
 import math
 
@@ -102,7 +103,6 @@ def main():
     primes_under_256 = sieve_of_eratosthenes(256)
     print("Простые числа меньше 256:", primes_under_256)
     
-    # 2. Test some numbers using Fermat's method
     test_numbers = [random.randint(2**1024, 2**2048) for _ in range(4)]
     for n in test_numbers:
         if n % 2 == 0 or any(n % p == 0 for p in primes_under_256 if p * p <= n):
@@ -112,7 +112,7 @@ def main():
         try:
             p, q = fermat_factorization(n)
             print(f"{n} = {p} × {q} (составное)")
-        except:
+        except Exception:
             print(f"{n} вероятно простое")
     
     large_prime = random.randint(2**1024, 2**2048)
